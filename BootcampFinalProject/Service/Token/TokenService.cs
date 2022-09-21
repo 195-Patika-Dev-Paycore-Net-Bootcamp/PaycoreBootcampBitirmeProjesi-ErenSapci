@@ -33,7 +33,7 @@ namespace BootcampFinalProject.Service.Token
         }
 
 
-
+        //the part where various user validations are performed
         public BaseResponse<TokenResponse> GenerateToken(TokenRequest tokenRequest)
         {
             try

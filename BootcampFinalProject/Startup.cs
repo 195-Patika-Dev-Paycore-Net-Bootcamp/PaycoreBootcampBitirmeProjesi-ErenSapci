@@ -36,7 +36,7 @@ namespace BootcampFinalProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // hibernate
+            //nhibernate implementation from StartupExtension/NhibernateExtensions
             var connStr = Configuration.GetConnectionString("PostgreSqlConnection");
             services.AddNHibernatePosgreSql(connStr);
             
@@ -45,13 +45,13 @@ namespace BootcampFinalProject
             services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
 
 
-            // mapper configuration
+            //mapper configuration
             var mapperConfig = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new MappingProfile());
             });
             services.AddSingleton(mapperConfig.CreateMapper());
-            // service
+            //services
             services.AddControllersWithViews();
             services.AddControllers();
             services.AddCustomizeSwagger();

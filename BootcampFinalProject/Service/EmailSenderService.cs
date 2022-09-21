@@ -28,7 +28,7 @@ namespace BootcampFinalProject.Service
 
             return Task.CompletedTask;
         }
-
+        //The section where the received emails are sent to the user.
         private void DoWork(object state)
         {
             var count = Interlocked.Increment(ref executionCount);
