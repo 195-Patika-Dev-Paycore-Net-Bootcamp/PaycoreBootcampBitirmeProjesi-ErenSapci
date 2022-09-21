@@ -8,6 +8,5 @@ namespace BootcampFinalProject.Service
     {
         public void Register(UserDto model);
         public UserDto GetUserByEmail(string email);
-        // AuthenticateResponse Authenticate(AuthenticateDto model);
     }
 }
