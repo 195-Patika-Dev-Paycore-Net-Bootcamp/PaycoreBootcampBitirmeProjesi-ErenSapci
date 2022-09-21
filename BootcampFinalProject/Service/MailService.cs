@@ -34,9 +34,6 @@ namespace BootcampFinalProject.Service
             mail.Status = "Pending";
             Insert(mail);
         }
-        public virtual void SendMail()
-        {
-        }
         public virtual IEnumerable<Mail> GetWaitingMails()
         {
             return hibernateRepository.Find(mail => mail.Attempt < 5 && !mail.Status.Equals("Sent"));

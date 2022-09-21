@@ -34,24 +34,19 @@ namespace BootcampFinalProject.Service
             return base.GetAll();
         }
 
+        //The part where we can get the products according to the CategoryId
         public BaseResponse<IEnumerable<ProductDto>> GetByCategoryId(int categoryId)
         {
             var category = categoryService.GetById(categoryId);
-            if(category == null)
-            {
-                //return new BaseResponse<ProductDto>("Given Category couldn't find.");
-            }
             var products = hibernateRepository.GetAll().FindAll(x => x.CategoryId == categoryId);
             var result = mapper.Map<IEnumerable<Product>, IEnumerable<ProductDto>>(products);
             return new BaseResponse<IEnumerable<ProductDto>>(result);         
         }
+
+        //The part where we can get the products according to the ownerId
         public BaseResponse<IEnumerable<ProductDto>> GetByOwnerId(int OwnerId)
         {
             var user = userService.GetById(OwnerId);
-            if (user == null)
-            {
-                //return new BaseResponse<ProductDto>("Given Category couldn't find.");
-            }
             var products = hibernateRepository.GetAll().FindAll(x => x.OwnerId == OwnerId);
             var result = mapper.Map<IEnumerable<Product>, IEnumerable<ProductDto>>(products);
             return new BaseResponse<IEnumerable<ProductDto>>(result);
@@ -60,11 +55,12 @@ namespace BootcampFinalProject.Service
         {
             return base.GetById(id);
         }
-
+        //The section where the entry of product information is provided
         public override BaseResponse<ProductDto> Insert(ProductDto insertResource)
         {
             var product = base.Insert(insertResource);
             var user = userService.GetById(product.Response.OwnerId);
+            //The part where the method that sends an e-mail to the user when each product is added is coded
             mailService.AddMail("Insert Product", "Product succesfully added", "erensapci@pyc.com", user.Response.Email);
             return product;
         }

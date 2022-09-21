@@ -5,6 +5,7 @@ using NHibernate.Mapping.ByCode.Conformist;
 
 namespace BootcampFinalProject.Entities.Mapping
 {
+    // //the part where the product part is mapped
     public class ProductMap: ClassMapping<Product>
     {
         public ProductMap()

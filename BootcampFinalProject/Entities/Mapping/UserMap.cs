@@ -7,6 +7,7 @@ using NHibernate.Mapping.ByCode.Conformist;
 
 namespace BootcampFinalProject.Entities.Mapping
 {
+    // //the part where the user part is mapped
     public class UserMap : ClassMapping<User>
     {
         public UserMap()

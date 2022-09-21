@@ -24,27 +24,29 @@ namespace BootcampFinalProject.Controller
             this.mapper = mapper;
             this.categoryService = categoryService;
         }
-
+        //get method listing all categories
         [HttpGet]
         public IActionResult GetAll()
         {
             var users = categoryService.GetAll();
             return Ok(users);
         }
-
+        //Method by which categories can be updated according to Id
         [HttpPut("{id}")]
         public IActionResult Update(int id, CategoryDto model)
         {
             categoryService.Update(id, model);
-            return Ok(new { message = "User updated successfully" });
+            return Ok(new { message = "Category updated successfully" });
         }
+
+        //post method where we can add a new category
         [HttpPost]
         public IActionResult Post(CategoryDto model)
         {
             categoryService.Insert(model);
-            return Ok(new { message = "Registration successful" });
+            return Ok(new { message = "Category Posted" });
         }
-
+        //the method we used to remove categories
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

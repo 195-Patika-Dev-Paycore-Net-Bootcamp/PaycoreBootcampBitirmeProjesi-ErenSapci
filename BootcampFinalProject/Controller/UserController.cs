@@ -25,6 +25,7 @@ namespace BootcampFinalProject.Controller
             this.tokenService = tokenService;
         }
 
+        //The method by which users are registered
         [HttpPost("register")]
         public IActionResult Register(UserDto model)
         {
@@ -32,6 +33,7 @@ namespace BootcampFinalProject.Controller
             return Ok(new { message = "Registration successful, please check your email for verification instructions" });
         }
 
+        //method of user login
         [HttpPost("Login")]
         public BaseResponse<TokenResponse> Login([FromBody] TokenRequest request)
         {
@@ -39,12 +41,15 @@ namespace BootcampFinalProject.Controller
             return response;
         }
 
+        //the part where user data can be updated
         [HttpPut]
         public IActionResult Update(int id, UserDto model)
         {
             userService.Update(id, model);
             return Ok(new { message = "User updated successfully" });
         }
+
+        //user deleted part
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {

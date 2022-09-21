@@ -5,6 +5,7 @@ using NHibernate.Mapping.ByCode.Conformist;
 
 namespace BootcampFinalProject.Entities.Mapping
 {
+    //the part where the offer part is mapped
     public class OfferMap : ClassMapping<Offer>
     {
         public OfferMap() 

@@ -42,6 +42,10 @@ namespace BootcampFinalProject.Service
         {
             return base.Insert(insertResource);
         }
+
+        //This is the section where we get the registration information from the user.
+        //In this section, we check whether the user's e-mail is correct or not. then we encrypt the password with the help of BCrypt.
+        //We add the incoming user to our model.
         public virtual void Register(UserDto model)
         {
             var UserList = hibernateRepository.GetAll();

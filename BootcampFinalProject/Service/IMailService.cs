@@ -9,7 +9,6 @@ namespace BootcampFinalProject.Service
     public interface IMailService: IBaseService<MailDto,Mail>
     {
         void AddMail(string Subject,string Content,string From, string To);
-        void SendMail();
         IEnumerable<Mail> GetWaitingMails();
         BaseResponse<MailDto> Update(int id, Mail updateResource);
     }

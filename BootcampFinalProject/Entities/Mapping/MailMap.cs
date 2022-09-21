@@ -4,6 +4,7 @@ using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
 namespace BootcampFinalProject.Entities.Mapping
 {
+    //the part where the mail part is mapped
     public class MailMap : ClassMapping<Mail>
     {
         public MailMap()

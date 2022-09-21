@@ -15,6 +15,8 @@ namespace BootcampFinalProject.Controller
         {
             this.productService = productService;
         }
+
+        //method that lists products
         [Authorize]
         [HttpGet]
         public IActionResult GetAll()
@@ -23,6 +25,7 @@ namespace BootcampFinalProject.Controller
             return Ok(products);
         }
 
+        //Listing products by categoryId
         [HttpGet("category/{categoryId}")]
         public IActionResult GetByCategoryId(int categoryId)
         {
@@ -30,6 +33,7 @@ namespace BootcampFinalProject.Controller
             return Ok(products);
         }
 
+        //Listing products by ownerId
         [HttpGet("owner/{ownerId}")]
         public IActionResult GetByOwnerId(int ownerId)
         {
@@ -37,19 +41,23 @@ namespace BootcampFinalProject.Controller
             return Ok(products);
         }
 
+        //The method by which products are updated
         [HttpPut("{id}")]
         public IActionResult Update(int id, ProductDto model)
         {
             productService.Update(id, model);
-            return Ok(new { message = "User updated successfully" });
+            return Ok(new { message = "Product updated successfully" });
         }
+
+        //the method we add new product
         [HttpPost]
         public IActionResult Post(ProductDto model)
         {
             productService.Insert(model);
-            return Ok(new { message = "Registration successful" });
+            return Ok(new { message = "Product posted successful" });
         }
 
+        //method by which products are deleted
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

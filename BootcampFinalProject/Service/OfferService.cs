@@ -87,7 +87,7 @@ namespace BootcampFinalProject.Service
         {
             return hibernateRepository.Find(x => x.UserId == id);
         }
-
+        //The part where the algorithm of the method we used to bid is created
         public virtual void MakeOffer(int ProductId,long UserOffer)
         {
             if(UserOffer <= 0)
@@ -106,6 +106,7 @@ namespace BootcampFinalProject.Service
                 offer.ProductId = ProductId;
                 offer.UserId = user.Id;
                 base.Insert(offer);
+                //The part where we send separate e-mails to the bidder and the product owner.
                 mailService.AddMail("Make offer", "Product offer succesfully added", "erensapci@pyc.com", userEmail);
                 mailService.AddMail("Incoming offer", "You have a new offer!!", "erensapci@pyc.com",productOwner.Response.Email);
             }

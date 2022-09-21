@@ -6,6 +6,7 @@ using NHibernate.Mapping.ByCode.Conformist;
 
 namespace BootcampFinalProject.Entities.Mapping
 {
+    //the part where the category part is mapped
     public class CategoryMap : ClassMapping<Category>
     {
         public CategoryMap()
