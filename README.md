@@ -53,6 +53,17 @@ implemented in the project in PostgreSql. In addition, our project is designed t
 <img width="568" alt="HashPassword" src="https://user-images.githubusercontent.com/43892645/191610238-feec03f6-ce36-4aea-8ca2-0f590d4a92f0.PNG">
 
 * Mail Service:
-* As you can see in this section, we keep the status of the mails. A random method was followed in the determination of these conditions.
+* As you can see in this section, we keep the status of the mails. A random method was followed in the determination of these conditions. Updating by pulling failed records to a different status after 5 attempts.
 
 <img width="734" alt="MailService" src="https://user-images.githubusercontent.com/43892645/191610489-ef7cb07f-a696-49df-98e5-d81a7fdf2f81.PNG">
+
+* It is the block that meets the requests of the users to make an offer, accept the offer and reject the offer within the 3 API call Offer controller with the image below. In addition, when you log in to these blocks, mail requests are sent via the mail service.
+
+<img width="539" alt="offer-reject-accept" src="https://user-images.githubusercontent.com/43892645/191612261-5dbd1c41-1847-43b0-9c47-f401f18414a7.PNG">
+
+
+* Schemas of the project:
+
+<img width="534" alt="Schema1" src="https://user-images.githubusercontent.com/43892645/191611641-7b346d6f-7739-436c-a1ab-6c9dd6f51792.PNG">
+
+<img width="536" alt="Schema2" src="https://user-images.githubusercontent.com/43892645/191611659-1b84ee92-0e31-4af5-a1b4-6810e8264dfd.PNG">
