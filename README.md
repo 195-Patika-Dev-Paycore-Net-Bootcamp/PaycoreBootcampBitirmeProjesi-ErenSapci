@@ -24,12 +24,17 @@ git clone 195-Patika-Dev-Paycore-Net-Bootcamp/PaycoreBootcampBitirmeProjesi-Eren
   "ConnectionStrings": {
     "PostgreSqlConnection": "User ID=postgres;Password=123;Server=localhost;Port=5432;Database=bootcampfinalprojectdb;Integrated Security=true;Pooling=true;"
 ```
-
 * To access the database tables of the project, 
 you can implement the data in Init.sql that we have 
 implemented in the project in PostgreSql. In addition, our project is designed to create tables by itself without implementing this data.
 
 * Db data is not intentionally added to the project file. Because the password information given by the user is in an encrypted state, you cannot access users who have not registered before. 
+
+### Project Structure
+
+<img width="285" alt="Structure" src="https://user-images.githubusercontent.com/43892645/191687040-b1cb91d2-fe13-44e2-94b8-8ab7f59abf6a.PNG">
+
+
 ### Some screenshots of the project are as follows:
 
 * Product and User block hierarchy:
