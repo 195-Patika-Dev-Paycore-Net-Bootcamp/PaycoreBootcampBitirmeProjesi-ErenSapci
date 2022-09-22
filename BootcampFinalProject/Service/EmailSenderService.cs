@@ -14,7 +14,7 @@ namespace BootcampFinalProject.Service
         private int executionCount = 0;
         private readonly ILogger<EmailSenderService> logger;
         private Timer _timer = null!;
-
+        //emailsenderservice constructor
         public EmailSenderService(ILogger<EmailSenderService> logger, IServiceProvider serviceProvider)
         {
             this.logger = logger;
@@ -35,7 +35,7 @@ namespace BootcampFinalProject.Service
             var randomGenerator = new Random();
             using (var scope = serviceProvider.CreateScope()) {
             var mailService = scope.ServiceProvider.GetService<IMailService>();
-                logger.LogInformation("Checking emails {Count} th time");
+                logger.LogInformation("Checking emails {Count} th time"); //login information that you can see on the output every second
                 var mails = mailService.GetWaitingMails();
                 foreach (var mail in mails)
                 {

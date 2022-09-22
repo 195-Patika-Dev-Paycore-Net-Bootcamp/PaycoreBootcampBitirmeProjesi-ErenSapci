@@ -23,6 +23,7 @@ namespace BootcampFinalProject.Service
             hibernateRepository = new HibernateRepository<Mail>(session);
         }
 
+        //the section where the mails are added
         public virtual void AddMail(string Subject, string Content, string From, string To)
         {
             var mail = new MailDto();

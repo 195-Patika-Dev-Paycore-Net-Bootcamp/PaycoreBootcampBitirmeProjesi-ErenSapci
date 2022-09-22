@@ -11,7 +11,6 @@ namespace BootcampFinalProject.StartupExtension
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pyc Api Management", Version = "v1.0" });
-               // c.OperationFilter<ExtensionSwaggerFileOperationFilter>();
 
                 var securityScheme = new OpenApiSecurityScheme
                 {

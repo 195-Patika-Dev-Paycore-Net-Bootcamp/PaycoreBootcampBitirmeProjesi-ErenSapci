@@ -23,7 +23,7 @@ namespace BootcampFinalProject.Service.Token
         private readonly JwtConfig jwtConfig;
         protected readonly IMailService mailService;
 
-
+        //Constructor of tokenservice class
         public TokenService(ISession session, IOptionsMonitor<JwtConfig> jwtConfig, IMailService mailService)
         {
             this.session = session;
@@ -42,13 +42,13 @@ namespace BootcampFinalProject.Service.Token
                 {
                     return new BaseResponse<TokenResponse>("Please enter valid informations.");
                 }
-
+                //text to be sent if an invalid email is entered
                 var account = hibernateRepository.Where(x => x.Email.Equals(tokenRequest.Email)).FirstOrDefault();
                 if (account is null)
                 {
                     return new BaseResponse<TokenResponse>("Please validate your informations that you provided.");
                 }
-
+                //text to be sent if an invalid password is entered
                 if (!BC.Verify(tokenRequest.Password, account.Password))
                 {
                     return new BaseResponse<TokenResponse>("Please validate your informations that you provided.");
@@ -64,7 +64,7 @@ namespace BootcampFinalProject.Service.Token
                     Email = account.Email,
                     SessionTimeInSecond = jwtConfig.AccessTokenExpiration * 60
                 };
-
+                //Registration of the e-mail to be sent after user login
                 mailService.AddMail("User Login", "Welcome to the Final Project", "erensapci@pyc.com", account.Email);
 
                 return new BaseResponse<TokenResponse>(tokenResponse);
